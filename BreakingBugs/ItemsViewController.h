@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DetailViewController.h"
 
-@interface ItemsViewController : NSObject
+@interface ItemsViewController : UITableViewController
+{
+}
+
+- (IBAction)addNewItem:(id)sender;
 
 @end

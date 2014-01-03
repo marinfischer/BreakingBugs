@@ -7,6 +7,7 @@
 //
 
 #import "BreakingBugsAppDelegate.h"
+#import "ItemsViewController.h"
 
 @implementation BreakingBugsAppDelegate
 
@@ -14,6 +15,14 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    // Create a ItemsViewController
+    ItemsViewController *itemsViewController = [[ItemsViewController alloc] init];
+    
+    //Create an instance of a UINavigationController. Its stack contains only itemsViewController
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:itemsViewController];
+    
+    // Place navigation controllers's table view in the window hierarchy
+    [[self window] setRootViewController:navController];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

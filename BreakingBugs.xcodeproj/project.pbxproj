@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E13164C185D04F00004FFFF /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E13164A185D04F00004FFFF /* DetailViewController.m */; };
+		7E13164D185D04F00004FFFF /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E13164B185D04F00004FFFF /* DetailViewController.xib */; };
+		7EB1592F18762DFF005D3852 /* BugImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB1592E18762DFF005D3852 /* BugImageStore.m */; };
 		7EF9201C1857C806005938FA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF9201B1857C806005938FA /* Foundation.framework */; };
 		7EF9201E1857C806005938FA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF9201D1857C806005938FA /* CoreGraphics.framework */; };
 		7EF920201857C806005938FA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF9201F1857C806005938FA /* UIKit.framework */; };
@@ -19,6 +22,9 @@
 		7EF920371857C806005938FA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF9201F1857C806005938FA /* UIKit.framework */; };
 		7EF9203F1857C806005938FA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7EF9203D1857C806005938FA /* InfoPlist.strings */; };
 		7EF920411857C806005938FA /* BreakingBugsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF920401857C806005938FA /* BreakingBugsTests.m */; };
+		7EF9204C1857C82E005938FA /* ItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF9204B1857C82E005938FA /* ItemsViewController.m */; };
+		7EF9204F1857C8FE005938FA /* BugItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF9204E1857C8FE005938FA /* BugItem.m */; };
+		7EF920521857CD0F005938FA /* BugItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF920511857CD0F005938FA /* BugItemStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +38,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E131649185D04F00004FFFF /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		7E13164A185D04F00004FFFF /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		7E13164B185D04F00004FFFF /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		7EB1592D18762DFF005D3852 /* BugImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BugImageStore.h; sourceTree = "<group>"; };
+		7EB1592E18762DFF005D3852 /* BugImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BugImageStore.m; sourceTree = "<group>"; };
 		7EF920181857C806005938FA /* BreakingBugs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreakingBugs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EF9201B1857C806005938FA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7EF9201D1857C806005938FA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -48,6 +59,12 @@
 		7EF9203C1857C806005938FA /* BreakingBugsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BreakingBugsTests-Info.plist"; sourceTree = "<group>"; };
 		7EF9203E1857C806005938FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7EF920401857C806005938FA /* BreakingBugsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BreakingBugsTests.m; sourceTree = "<group>"; };
+		7EF9204A1857C82E005938FA /* ItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsViewController.h; sourceTree = "<group>"; };
+		7EF9204B1857C82E005938FA /* ItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsViewController.m; sourceTree = "<group>"; };
+		7EF9204D1857C8FE005938FA /* BugItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BugItem.h; sourceTree = "<group>"; };
+		7EF9204E1857C8FE005938FA /* BugItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BugItem.m; sourceTree = "<group>"; };
+		7EF920501857CD0F005938FA /* BugItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BugItemStore.h; sourceTree = "<group>"; };
+		7EF920511857CD0F005938FA /* BugItemStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BugItemStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +126,17 @@
 			children = (
 				7EF9202A1857C806005938FA /* BreakingBugsAppDelegate.h */,
 				7EF9202B1857C806005938FA /* BreakingBugsAppDelegate.m */,
+				7EB1592D18762DFF005D3852 /* BugImageStore.h */,
+				7EB1592E18762DFF005D3852 /* BugImageStore.m */,
+				7E131649185D04F00004FFFF /* DetailViewController.h */,
+				7E13164A185D04F00004FFFF /* DetailViewController.m */,
+				7E13164B185D04F00004FFFF /* DetailViewController.xib */,
+				7EF9204A1857C82E005938FA /* ItemsViewController.h */,
+				7EF9204B1857C82E005938FA /* ItemsViewController.m */,
+				7EF9204D1857C8FE005938FA /* BugItem.h */,
+				7EF9204E1857C8FE005938FA /* BugItem.m */,
+				7EF920501857CD0F005938FA /* BugItemStore.h */,
+				7EF920511857CD0F005938FA /* BugItemStore.m */,
 				7EF9202D1857C806005938FA /* Images.xcassets */,
 				7EF920221857C806005938FA /* Supporting Files */,
 			);
@@ -222,6 +250,7 @@
 			files = (
 				7EF920261857C806005938FA /* InfoPlist.strings in Resources */,
 				7EF9202E1857C806005938FA /* Images.xcassets in Resources */,
+				7E13164D185D04F00004FFFF /* DetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,8 +269,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EF9204C1857C82E005938FA /* ItemsViewController.m in Sources */,
+				7EF9204F1857C8FE005938FA /* BugItem.m in Sources */,
 				7EF9202C1857C806005938FA /* BreakingBugsAppDelegate.m in Sources */,
+				7EB1592F18762DFF005D3852 /* BugImageStore.m in Sources */,
+				7EF920521857CD0F005938FA /* BugItemStore.m in Sources */,
 				7EF920281857C806005938FA /* main.m in Sources */,
+				7E13164C185D04F00004FFFF /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,7 +397,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BreakingBugs/BreakingBugs-Prefix.pch";
 				INFOPLIST_FILE = "BreakingBugs/BreakingBugs-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -376,7 +412,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BreakingBugs/BreakingBugs-Prefix.pch";
 				INFOPLIST_FILE = "BreakingBugs/BreakingBugs-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -442,6 +480,7 @@
 				7EF920461857C806005938FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7EF920471857C806005938FA /* Build configuration list for PBXNativeTarget "BreakingBugsTests" */ = {
 			isa = XCConfigurationList;
@@ -450,6 +489,7 @@
 				7EF920491857C806005938FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
