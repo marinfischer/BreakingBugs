@@ -65,6 +65,12 @@
     [item setPriorityRating:[[priorityField text] intValue]];
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
 - (void)setItem:(BugItem *)i
 {
     item = i;
@@ -88,13 +94,30 @@
     [self presentViewController:imagePicker animated:YES completion:nil];
 }
 
+- (IBAction)backgroundTapped:(id)sender
+{
+    [[self view] endEditing:YES];
+}
+
+- (IBAction)deletePhoto:(id)sender
+{
+    NSString *currentKey = [item imageKey];
+    //Is there currently an image?
+    if (currentKey) {
+        //Delete the old image
+        [[BugImageStore sharedStore] deleteImageForKey:currentKey];
+    }
+    
+        [imageView setImage:nil];
+}
+
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     NSString *oldKey = [item imageKey];
     
     //Did the item already have an image?
     if (oldKey) {
-        //Delete th old image
+        //Delete the old image
         [[BugImageStore sharedStore] deleteImageForKey:oldKey];
     }
     

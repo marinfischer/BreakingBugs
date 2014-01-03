@@ -10,7 +10,7 @@
 
 @class BugItem;
 
-@interface DetailViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface DetailViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
 {
     __weak IBOutlet UITextField *bugTitleField;
     
@@ -22,5 +22,7 @@
 
 @property (nonatomic, strong) BugItem *item;
 - (IBAction)takePicture:(id)sender;
+- (IBAction)backgroundTapped:(id)sender;
+- (IBAction)deletePhoto:(id)sender;
 
 @end
