@@ -38,6 +38,18 @@
     
     //Use filtered NSDate object to set dateLabel contents
     [dateLabel setText:[dateFormatter stringFromDate:[item dateCreated]]];
+    
+    NSString *imageKey = [item imageKey];
+    if (imageKey) {
+        //Get image for imageKey from image store
+        UIImage *imageToDisplay = [[BugImageStore sharedStore] imageForKey:imageKey];
+        
+        //Use that image to put on the screen in imageView
+        [imageView setImage:imageToDisplay];
+    } else {
+        // If there is no image, clear the imageView
+        [imageView setImage:nil];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -78,8 +90,17 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
+    NSString *oldKey = [item imageKey];
+    
+    //Did the item already have an image?
+    if (oldKey) {
+        //Delete th old image
+        [[BugImageStore sharedStore] deleteImageForKey:oldKey];
+    }
+    
     //Get picked image from info dictionary
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
     
     //Create a CFUUIDobject - it knows how to create unique identifier strings
     CFUUIDRef newUniqueID = CFUUIDCreate(kCFAllocatorDefault);
