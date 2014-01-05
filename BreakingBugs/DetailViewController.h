@@ -10,7 +10,7 @@
 
 @class BugItem;
 
-@interface DetailViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
+@interface DetailViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, UIPopoverControllerDelegate>
 {
     __weak IBOutlet UITextField *bugTitleField;
     
@@ -18,6 +18,8 @@
     __weak IBOutlet UITextField *bugNumberField;
     __weak IBOutlet UILabel *dateLabel;
     __weak IBOutlet UIImageView *imageView;
+    
+    UIPopoverController *imagePickerPopover;
 }
 
 @property (nonatomic, strong) BugItem *item;

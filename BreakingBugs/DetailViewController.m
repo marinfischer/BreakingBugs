@@ -1,4 +1,4 @@
-// pg 270
+// pg 281
 //  DetailViewController.m
 //  BreakingBugs
 //
@@ -21,7 +21,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[self view] setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+    UIColor *color = nil;
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        color = [UIColor colorWithRed:0.875 green:0.88 blue:0.91 alpha:1];
+    } else {
+        color = [UIColor groupTableViewBackgroundColor];
+    }
+    [[self view] setBackgroundColor:color];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -79,6 +85,13 @@
 
 - (IBAction)takePicture:(id)sender
 {
+    if ([imagePickerPopover isPopoverVisible]) {
+        //If the popover is already up, get rid of it
+        [imagePickerPopover dismissPopoverAnimated:YES];
+        imagePickerPopover = nil;
+        return;
+    }
+    
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
     
     //If our device has a camera, we want to take a picture, otherwise, we just pick from photo library
@@ -91,7 +104,18 @@
     [imagePicker setDelegate:self];
     
     //Place image picker on the screen
-    [self presentViewController:imagePicker animated:YES completion:nil];
+    //Check for iPad before device before instanciating the popover controller
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        //Create a new popover controller that will display the imagePicker
+        imagePickerPopover = [[UIPopoverController alloc] initWithContentViewController:imagePicker];
+        
+        [imagePickerPopover setDelegate:self];
+        
+        //Display the popover controller; sender is the camer bar button item
+        [imagePickerPopover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    } else {
+        [self presentViewController:imagePicker animated:YES completion:nil];
+    }
 }
 
 - (IBAction)backgroundTapped:(id)sender
@@ -109,6 +133,12 @@
     }
     
         [imageView setImage:nil];
+}
+
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+{
+    NSLog(@"User dismissed popover");
+    imagePickerPopover = nil;
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -145,8 +175,15 @@
     //Put that image image onto the screen in our image view
     [imageView setImage:image];
     
-    //Take image picker off the screen- you must call this dismiss method
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        //If on the iphone, the image picker is presented modally. DIssmiss it.
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } else {
+        //If on the ipad, the image picker is in the popover. Dismiss the popover.
+        [imagePickerPopover dismissPopoverAnimated:YES];
+        imagePickerPopover = nil;
+    }
 }
+
 
 @end
