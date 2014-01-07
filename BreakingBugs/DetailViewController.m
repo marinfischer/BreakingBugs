@@ -1,4 +1,4 @@
-// pg 281
+// pg 300
 //  DetailViewController.m
 //  BreakingBugs
 //
@@ -9,14 +9,37 @@
 #import "DetailViewController.h"
 #import "BugItem.h"
 #import "BugImageStore.h"
+#import "BugItemStore.h"
 
 @interface DetailViewController ()
 
 @end
 
 @implementation DetailViewController
-
+@synthesize dismissBlock;
 @synthesize item;
+
+- (id)initWithNibName:(NSString *)nibName bundle:(NSBundle *)bundle
+{
+    @throw [NSException exceptionWithName:@"Wrong initializer" reason:@"Use initFornewItem:" userInfo:nil];
+    return nil;
+}
+
+- (id)initForNewItem:(BOOL)isNew
+{
+    self = [super initWithNibName:@"DetailViewController" bundle:nil];
+    
+    if (self) {
+        if (isNew) {
+            UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(save:)];
+            [[self navigationItem] setRightBarButtonItem:doneItem];
+            
+            UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel:)];
+            [[self navigationItem] setLeftBarButtonItem:cancelItem];
+        }
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
@@ -71,6 +94,19 @@
     [item setPriorityRating:[[priorityField text] intValue]];
 }
 
+- (void)save:(id)sender
+{
+    [[self presentingViewController] dismissViewControllerAnimated:YES completion:dismissBlock];
+}
+
+- (void)cancel:(id)sender
+{
+    //If the user cancelled, then remover the BugItem from the store
+    [[BugItemStore sharedStore] removeItem:item];
+    
+    [[self presentingViewController] dismissViewControllerAnimated:YES completion:dismissBlock];
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
@@ -93,13 +129,8 @@
     }
     
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-    
-    //If our device has a camera, we want to take a picture, otherwise, we just pick from photo library
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
-    } else {
+
         [imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-    }
     
     [imagePicker setDelegate:self];
     

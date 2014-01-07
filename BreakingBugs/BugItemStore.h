@@ -29,5 +29,7 @@
 - (NSArray *)allItems;
 - (BugItem *)createItem;
 - (void)moveItemAtIndex:(int)from toIndex:(int)to;
+- (NSString *)itemArchivePath;
+- (BOOL)saveChanges;
 
 @end

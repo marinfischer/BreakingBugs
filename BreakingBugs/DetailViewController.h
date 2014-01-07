@@ -23,8 +23,11 @@
 }
 
 @property (nonatomic, strong) BugItem *item;
+@property (nonatomic, copy) void (^dismissBlock)(void);
 - (IBAction)takePicture:(id)sender;
 - (IBAction)backgroundTapped:(id)sender;
 - (IBAction)deletePhoto:(id)sender;
+
+- (id)initForNewItem:(BOOL)isNew;
 
 @end

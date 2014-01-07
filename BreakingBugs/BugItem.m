@@ -108,47 +108,23 @@
     }
     return self;
 }
+
 + (id)randomItem
 {
-    // Create an array of three adjectives
-    NSArray *randomAdjectiveList = [NSArray arrayWithObjects:@"Missing",
-                                    @"Error",
-                                    @"Broken", nil];
-    // Create an array of three nouns
-    NSArray *randomNounList = [NSArray arrayWithObjects:@"Button",
-                               @"View",
-                               @"Selection", nil];
-    // Get the index of a random adjective/noun from the lists
-    // Note: The % operator, called the modulo operator, gives
-    // you the remainder. So adjectiveIndex is a random number
-    // from 0 to 2 inclusive.
-    NSInteger adjectiveIndex = rand() % [randomAdjectiveList count];
-    NSInteger nounIndex = rand() % [randomNounList count];
-    
-    // Note that NSInteger is not an object, but a type definition
-    // for "unsigned long"
-    
-    NSString *randomName = [NSString stringWithFormat:@"%@ %@",
-                            [randomAdjectiveList objectAtIndex:adjectiveIndex],
-                            [randomNounList objectAtIndex:nounIndex]];
-    int randomValue = rand() % 100;
+   // int randomValue = rand() % 10;
     NSString *randomBugNumber = [NSString stringWithFormat:@"%c%c%c%c%c",
                                     '0' + rand() % 10,
                                     'A' + rand() % 26,
                                     '0' + rand() % 10,
                                     'A' + rand() % 26,
                                     '0' + rand() % 10];
-    // Once again, ignore the memory problems with this method
+    
     BugItem *newItem =
-    [[self alloc] initWithItemName:randomName
-                    priorityRating:randomValue
-                      bugNumber:randomBugNumber];
+    [[self alloc] initWithbugNumber:randomBugNumber];
     return newItem;
 }
 
-- (id)initWithItemName:(NSString *)name
-        priorityRating:(int)priority
-          bugNumber:(NSString *)bNumber
+- (id)initWithbugNumber:(NSString *)bNumber
 {
     // Call the superclass's designated initializer
     self = [super init];
@@ -156,9 +132,7 @@
     // Did the superclass's designated initializer succeed?
     if(self) {
         // Give the instance variables initial values
-        [self setItemName:name];
         [self setBugNumber:bNumber];
-        [self setPriorityRating:priority];
         dateCreated = [[NSDate alloc] init];
     }
     
