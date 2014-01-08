@@ -10,6 +10,7 @@
 
 #import "BugItemStore.h"
 #import "BugItem.h"
+#import "BugImageStore.h"
 
 @implementation BugItemStore
 
@@ -61,12 +62,15 @@
 
 - (void)removeItem:(BugItem *)p
 {
+    NSString *key = [p imageKey];
+    [[BugImageStore sharedStore] deleteImageForKey:key];
     [allItems removeObjectIdenticalTo:p];
 }
 
 - (void)moveItemAtIndex:(int)from toIndex:(int)to
 {
-    if (from == to) {
+    if (from == to)
+    {
         return;
     }
     //get pointer to object being moved so we can re-insert it
