@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "DetailViewController.h"
+#import "BugItemCell.h"
 
 @interface ItemsViewController : UITableViewController
 {

@@ -13,9 +13,7 @@
 }
 + (id)randomItem;
 
-- (id)initWithItemName:(NSString *)name
-        priorityRating:(int)priority
-          bugNumber:(NSString *)bNumber;
+- (id)initWithBugNumber:(NSString *)bNumber;
 
 @property (nonatomic, strong) BugItem *containedItem;
 @property (nonatomic, weak) BugItem *container;

@@ -38,6 +38,17 @@
     return [self init];
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    //Load the NIB file
+    UINib *nib = [UINib nibWithNibName:@"BugItemCell" bundle:nil];
+    
+    //Register the NIB which contains the cell
+    [[self tableView] registerNib:nib forCellReuseIdentifier:@"BugItemCell"];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -52,17 +63,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //Check for a reusable cell first, use  that if it exists
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
-    //If there us no reuseable cell of this type, create a new one
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
-    }
-    
     //Set the text on the cell with the description of the item that is at the nth index of items, where n=row this cell will appear in on the tableview
     BugItem *p = [[[BugItemStore sharedStore] allItems] objectAtIndex:[indexPath row]];
     
-    [[cell textLabel] setText:[p description]];
+    //Get the new or recycled cell
+    BugItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BugItemCell"];
+    
+    //Configure the cell with the BugItem
+    [[cell nameLabel] setText:[p itemName]];
+    [[cell bugNumberLabel] setText:[p bugNumber]];
+    [[cell priorityLabel] setText:[NSString stringWithFormat:@"%d", [p priorityRating]]];
     
     return cell;
 }

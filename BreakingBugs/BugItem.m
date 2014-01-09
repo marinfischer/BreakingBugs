@@ -120,11 +120,11 @@
                                     '0' + rand() % 10];
     
     BugItem *newItem =
-    [[self alloc] initWithbugNumber:randomBugNumber];
+    [[self alloc] initWithBugNumber:randomBugNumber];
     return newItem;
 }
 
-- (id)initWithbugNumber:(NSString *)bNumber
+- (id)initWithBugNumber:(NSString *)bNumber
 {
     // Call the superclass's designated initializer
     self = [super init];
@@ -142,9 +142,7 @@
 
 - (id)init
 {
-    return [self initWithItemName:@"Possession"
-                   priorityRating:0
-                     bugNumber:@""];
+    return [self initWithBugNumber:@""];
 }
 
 
