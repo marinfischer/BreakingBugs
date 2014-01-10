@@ -74,6 +74,8 @@
     [[cell bugNumberLabel] setText:[p bugNumber]];
     [[cell priorityLabel] setText:[NSString stringWithFormat:@"%d", [p priorityRating]]];
     
+    [[cell thumbnailView] setImage:[p thumbnail]];
+    
     return cell;
 }
 

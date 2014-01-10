@@ -11,9 +11,6 @@
 @interface BugItem : NSObject <NSCoding>
 {
 }
-+ (id)randomItem;
-
-- (id)initWithBugNumber:(NSString *)bNumber;
 
 @property (nonatomic, strong) BugItem *containedItem;
 @property (nonatomic, weak) BugItem *container;
@@ -31,6 +28,9 @@
 @property (nonatomic, strong) UIImage *thumbnail;
 @property (nonatomic, strong) NSData *thumbnailData;
 
++ (id)randomItem;
+
+- (id)initWithBugNumber:(NSString *)bNumber;
 - (void)setThumbnailDataFromImage: (UIImage *)image;
 
 @end

@@ -51,7 +51,7 @@
     //Make all subsequent drawing clip to this rounded rectangle
     [path addClip];
     
-    //Center the image in teh thumbnail rectangle
+    //Center the image in the thumbnail rectangle
     CGRect projectRect;
     projectRect.size.width = ratio *origImageSize.width;
     projectRect.size.height = ratio *origImageSize.height;
@@ -69,7 +69,7 @@
     NSData *data = UIImagePNGRepresentation(smallImage);
     [self setThumbnailData:data];
     
-    //Cleanup image context rescources, we're done
+    //Cleanup image context resources, we're done
     UIGraphicsEndImageContext();
 }
 

@@ -185,6 +185,7 @@
     //Get picked image from info dictionary
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     
+    [item setThumbnailDataFromImage:image];
     
     //Create a CFUUIDobject - it knows how to create unique identifier strings
     CFUUIDRef newUniqueID = CFUUIDCreate(kCFAllocatorDefault);
