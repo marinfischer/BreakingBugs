@@ -10,6 +10,8 @@
 		7E13164C185D04F00004FFFF /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E13164A185D04F00004FFFF /* DetailViewController.m */; };
 		7E13164D185D04F00004FFFF /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E13164B185D04F00004FFFF /* DetailViewController.xib */; };
 		7EB1592F18762DFF005D3852 /* BugImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB1592E18762DFF005D3852 /* BugImageStore.m */; };
+		7EC00F3818860C8E00ABAE7A /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC00F3618860C8E00ABAE7A /* ImageViewController.m */; };
+		7EC00F3918860C8E00ABAE7A /* ImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EC00F3718860C8E00ABAE7A /* ImageViewController.xib */; };
 		7EE1CF34187F4F0F00EE2F2F /* BugItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE1CF33187F4F0F00EE2F2F /* BugItemCell.m */; };
 		7EE1CF36187F4FB900EE2F2F /* BugItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EE1CF35187F4FB800EE2F2F /* BugItemCell.xib */; };
 		7EF9201C1857C806005938FA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF9201B1857C806005938FA /* Foundation.framework */; };
@@ -45,6 +47,9 @@
 		7E13164B185D04F00004FFFF /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		7EB1592D18762DFF005D3852 /* BugImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BugImageStore.h; sourceTree = "<group>"; };
 		7EB1592E18762DFF005D3852 /* BugImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BugImageStore.m; sourceTree = "<group>"; };
+		7EC00F3518860C8E00ABAE7A /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		7EC00F3618860C8E00ABAE7A /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		7EC00F3718860C8E00ABAE7A /* ImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageViewController.xib; sourceTree = "<group>"; };
 		7EE1CF32187F4F0F00EE2F2F /* BugItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BugItemCell.h; sourceTree = "<group>"; };
 		7EE1CF33187F4F0F00EE2F2F /* BugItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BugItemCell.m; sourceTree = "<group>"; };
 		7EE1CF35187F4FB800EE2F2F /* BugItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BugItemCell.xib; sourceTree = "<group>"; };
@@ -133,6 +138,9 @@
 				7EF9202B1857C806005938FA /* BreakingBugsAppDelegate.m */,
 				7EB1592D18762DFF005D3852 /* BugImageStore.h */,
 				7EB1592E18762DFF005D3852 /* BugImageStore.m */,
+				7EC00F3518860C8E00ABAE7A /* ImageViewController.h */,
+				7EC00F3618860C8E00ABAE7A /* ImageViewController.m */,
+				7EC00F3718860C8E00ABAE7A /* ImageViewController.xib */,
 				7E131649185D04F00004FFFF /* DetailViewController.h */,
 				7E13164A185D04F00004FFFF /* DetailViewController.m */,
 				7E13164B185D04F00004FFFF /* DetailViewController.xib */,
@@ -256,6 +264,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EC00F3918860C8E00ABAE7A /* ImageViewController.xib in Resources */,
 				7EF920261857C806005938FA /* InfoPlist.strings in Resources */,
 				7EE1CF36187F4FB900EE2F2F /* BugItemCell.xib in Resources */,
 				7EF9202E1857C806005938FA /* Images.xcassets in Resources */,
@@ -284,6 +293,7 @@
 				7EB1592F18762DFF005D3852 /* BugImageStore.m in Sources */,
 				7EF920521857CD0F005938FA /* BugItemStore.m in Sources */,
 				7EE1CF34187F4F0F00EE2F2F /* BugItemCell.m in Sources */,
+				7EC00F3818860C8E00ABAE7A /* ImageViewController.m in Sources */,
 				7EF920281857C806005938FA /* main.m in Sources */,
 				7E13164C185D04F00004FFFF /* DetailViewController.m in Sources */,
 			);

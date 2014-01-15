@@ -9,6 +9,8 @@
 #import "ItemsViewController.h"
 #import "BugItemStore.h"
 #import "BugItem.h"
+#import "BugImageStore.h"
+#import "ImageViewController.h"
 
 @implementation ItemsViewController
 
@@ -69,6 +71,8 @@
     //Get the new or recycled cell
     BugItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BugItemCell"];
     
+    [cell setController:self];
+    [cell setTableView:tableView];
     //Configure the cell with the BugItem
     [[cell nameLabel] setText:[p itemName]];
     [[cell bugNumberLabel] setText:[p bugNumber]];
@@ -133,5 +137,38 @@
     [[self navigationController] pushViewController:detailViewController animated:YES];
 }
 
+- (void)showImage:(id)sender atIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"Going to show the image for %@", indexPath);
+    
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        //Get the item for the index path
+        BugItem *item = [[[BugItemStore sharedStore] allItems] objectAtIndex:[indexPath row]];
+        
+        NSString *imageKey = [item imageKey];
+        
+        //If there is no image, we dont need to display anything
+        UIImage *image = [[BugImageStore sharedStore] imageForKey:imageKey];
+        if (!image)
+        {
+            return;
+        }
+        
+        //Make a rectangle that the frame of the button relative to out table view
+        CGRect rect = [[self view] convertRect:[sender bounds] fromView:sender];
+        
+        //Create a new ImageViewController and set its image
+        ImageViewController *ivc = [[ImageViewController alloc] init];
+        [ivc setImage:image];
+        
+        //Present a 600x600 popover from the rect
+        imagePopover = [[UIPopoverController alloc] initWithContentViewController:ivc];
+        [imagePopover setDelegate:self];
+        [imagePopover setPopoverContentSize:CGSizeMake(600, 600)];
+        [imagePopover presentPopoverFromRect:rect
+                                      inView:[self view] permittedArrowDirections:UIPopoverArrowDirectionAny
+                                    animated:YES];
+    }
+}
 
 @end

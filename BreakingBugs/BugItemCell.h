@@ -13,5 +13,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *priorityLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bugNumberLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnailView;
+@property (weak, nonatomic) id controller;
+@property (weak, nonatomic) UITableView *tableView;
+- (IBAction)showImage:(id)sender;
 
 @end
